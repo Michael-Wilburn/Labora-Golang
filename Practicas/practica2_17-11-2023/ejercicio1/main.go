@@ -31,7 +31,7 @@ func mayorDe10() int {
 	var num int
 	maxNum := new(int)
 
-	fmt.Println("Ingrese de a un número y el programa le dira cual es mayor de los tres")
+	fmt.Println("Ingrese de a un número y el programa le dira cual es mayor de los diez")
 	for i := 0; i < 10; i++ {
 		fmt.Scan(&num)
 		if num > *maxNum {

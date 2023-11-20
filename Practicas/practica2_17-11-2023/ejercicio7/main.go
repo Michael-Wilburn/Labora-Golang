@@ -11,6 +11,12 @@ func main() {
 
 	divisores := divisoresComunes(num1, num2)
 	fmt.Printf("Maximo comun divisor es: %v\n", divisores[0])
+
+	//Ej.: mcd (6,9) = 3, mcd (10,15) = 5, mcd (7,14) = 7, mcd (3,7) = 1
+	fmt.Println(divisoresComunes(6, 9)[0])
+	fmt.Println(divisoresComunes(10, 15)[0])
+	fmt.Println(divisoresComunes(7, 14)[0])
+	fmt.Println(divisoresComunes(3, 7)[0])
 }
 
 //7.Desarrollar un algoritmo para hallar el máximo común divisor (abreviado como mcd) entre dos números naturales. El máximo común divisor entre dos números es el mayor número que divide a ambos.
