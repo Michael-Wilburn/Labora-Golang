@@ -10,7 +10,7 @@ func main() {
 }
 
 /*
-6. Realice un algoritmo que dado un string te diga si es palindromo
+8. Realice un algoritmo que dado un string te diga si es palindromo
 */
 
 func esPalindromo(str string) {

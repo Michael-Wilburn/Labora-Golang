@@ -17,10 +17,9 @@ func main() {
 	fmt.Println(capicua(335536))
 }
 
-/* 5. Realice un algoritmo que dado un número te diga si es capicua.
+/* 9. Realice un algoritmo que dado un número te diga si es capicua.
     a. ¿Hay alguna relación entre estos últimos dos ejercicios?
-		a)Si hay una relacion la unica diferencia es que en el palindromo hay que retirar los espacios vacios entre palagras y con los numero capicua no y tener en cuenta que son diferentes tipos de datos con los que se trabja.
-
+		a)Si hay una relacion la unica diferencia es que en el palindromo hay que retirar los espacios vacios entre palabras y con los numero capicua no y tener en cuenta que son diferentes tipos de datos con los que se trabja.
 */
 
 func capicua(num int) bool {

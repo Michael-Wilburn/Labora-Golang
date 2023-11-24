@@ -7,7 +7,7 @@ func main() {
 }
 
 /*
-5.Realice un algoritmo que dado un string lo invierta.
+7.Realice un algoritmo que dado un string lo invierta.
 */
 
 func invertirString(str string) {

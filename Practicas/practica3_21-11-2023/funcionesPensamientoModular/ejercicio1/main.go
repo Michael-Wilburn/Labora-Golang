@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	esPerfecto(6)
+	esPerfecto, acumulador := esPerfecto(6)
+	fmt.Printf("El numero esPerfecto: %v\n la suma da como resultado: %v\n", esPerfecto, acumulador)
 }
 
 /*1. Realice un algoritmo para determinar si un número es perfecto. Un número es perfecto cuando la suma de sus divisores propios es igual al número. Los divisores propios de un número son todos sus divisores sin contar el mismo número.
@@ -15,13 +16,16 @@ Divisores Propios: 1, 2 y 3.
 1 + 2 + 3 = 6
 */
 
-func esPerfecto(num int) {
+func esPerfecto(num int) (bool, int) {
 	var accumulador int
-	for i := 1; i < num; i++ {
+	for i := 1; i <= num/2; i++ {
 		if num%i == 0 {
 			accumulador += i
 		}
 	}
-	fmt.Println(accumulador)
+	if num == accumulador {
+		return true, accumulador
+	}
+	return false, accumulador
 
 }
