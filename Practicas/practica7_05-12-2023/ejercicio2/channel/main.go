@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sync"
 	"time"
 )
 
@@ -14,31 +13,23 @@ type resultAndTime struct {
 
 func main() {
 
-	var wg sync.WaitGroup
 	respch := make(chan resultAndTime)
 
 	go func() {
-		defer wg.Done()
 		respch <- sumaPares()
 	}()
-	wg.Add(1)
 
 	go func() {
-		defer wg.Done()
 		respch <- sumaImpares()
-	}()
-	wg.Add(1)
 
-	go func() {
-		wg.Wait()
-		close(respch)
 	}()
 
-	for value := range respch {
-		fmt.Printf("%v suman %v el tiempo que le toma es %v\n", value.label, value.num, value.timeTaked)
+	resultado1 := <-respch
+	resultado2 := <-respch
+	fmt.Printf("%v suman %v el tiempo que le toma es %v\n", resultado1.label, resultado1.num, resultado1.timeTaked)
+	fmt.Printf("%v suman %v el tiempo que le toma es %v\n", resultado2.label, resultado2.num, resultado2.timeTaked)
 
-	}
-
+	close(respch)
 }
 
 /*go
@@ -52,7 +43,7 @@ Para sincronizar se puede usar grupos de espera o canales. Preferentemente podé
 func sumaPares() resultAndTime {
 	startTime := time.Now()
 	var pares int
-	for i := 0; i < 200; i++ {
+	for i := 1; i < 20000; i++ {
 		if i%2 == 0 {
 			pares += i
 
@@ -65,7 +56,7 @@ func sumaPares() resultAndTime {
 func sumaImpares() resultAndTime {
 	startTime := time.Now()
 	var impares int
-	for i := 0; i < 200; i++ {
+	for i := 1; i < 20000; i++ {
 		if i%2 != 0 {
 			impares += i
 		}
